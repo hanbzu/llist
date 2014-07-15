@@ -1,9 +1,10 @@
 {
-  "name": "timetrim",
+  "name": "llist",
   "version": "0.0.1",
   "authors": [
-    "Hibai Unzueta"
+    "Hibai Unzueta (http://hibaiunzueta.com/)"
   ],
+  "main": "llist.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
