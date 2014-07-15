@@ -1,0 +1,16 @@
+{
+  "name": "timetrim",
+  "version": "0.0.1",
+  "authors": [
+    "Hibai Unzueta"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "index.html"
+  ]
+}

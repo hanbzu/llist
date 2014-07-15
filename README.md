@@ -1,4 +1,4 @@
-timetrim
-========
+llist
+=====
 
-Widget to visualise events in time and trim them out.
+A versatile list of elements from an array, using D3.
