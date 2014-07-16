@@ -6,7 +6,7 @@ function llist(params) {
         return selection
       },
       onclick = function(_) { console.log("onUpdate not defined") },
-      effectDuration = 1000
+      effectDuration = 500
 
   function list(selection) {
 
