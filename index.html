@@ -20,6 +20,7 @@
   </head>
   <body>
 
+    <button onClick="modify()">Click me</button>
     <div id="list"></div>
 
     <!-- Placed at the end of the document so the pages load faster -->
@@ -43,7 +44,7 @@
       ].sort(sortList)
       d3.select('#list').datum(example_data).call(theList)
       
-      window.setTimeout(function() {
+      function modify() {
         console.log("Auch!")
         var example_data2 = [
           { place: "Avocado", price: 12.10 },
@@ -56,7 +57,9 @@
         d3.select('#list')
           .datum(example_data2)
           .call(theList)
-      }, 3000)
+      }
+
+      window.setTimeout(modify, 3000)
       </script>
   </body>
 </html>

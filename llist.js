@@ -30,22 +30,30 @@ function llist(params) {
       var li = d3.select(this).selectAll("li")
           .data(data, function key(d) { return d.place; })
           
-      li.transition().delay(1000)
-          .duration(effectDuration)
+      li.transition().duration(effectDuration)
           .call(updateLi)
+          .style("opacity", 1)
 
       li.enter().append("li")
           .style("opacity", 1e-6)
           .call(updateLi)
-        .transition()
-          .duration(effectDuration)
+        .transition().duration(effectDuration)
           .style("opacity", 1)
 
+      // exit old lis, mark them as exiting and transition out
       li.exit()
-        .transition()
-          .duration(effectDuration)
+          .classed('exiting', true)
+        .transition().duration(effectDuration)
           .style("opacity", 1e-6)
           .remove()
+
+      // lis with exiting class started to exit, but then re-entered
+      // They won't show up in the enter selection because they already exist
+      li.filter('.exiting')
+          .classed('exiting', false)
+          .call(updateLi)
+        .transition().duration(effectDuration)
+          .style("opacity", 1)
 
       li.order()
     })
