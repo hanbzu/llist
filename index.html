@@ -33,7 +33,11 @@
         if (a.place < b.place) return -1
         return 0
       }
-      var theList = llist()
+      var theList = d3.llist()
+                      .updateLi(function(selection) {
+                        selection.text(function(d) { return d.place /*+ ' ' + d.price + '€'*/ })
+                      })
+
       var example_data = [
         { place: "Apple", price: 29.32 },
         { place: "Watermelon", price: 9.45 },
