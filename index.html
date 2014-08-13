@@ -37,6 +37,7 @@
                       .updateLi(function(selection) {
                         selection.text(function(d) { return d.place /*+ ' ' + d.price + '€'*/ })
                       })
+                      .key(function(d) { return d.place })
 
       var example_data = [
         { place: "Apple", price: 29.32 },
