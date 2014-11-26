@@ -29,10 +29,8 @@ d3.llist = function module() {
               .data(_data, config.key)
 
           li.enter().append('li')
-              .call(config.updateItem)
-
-          li.exit()
-              .remove()
+          li.exit().remove()
+          li.call(config.updateItem)
 
           // Re-inserts elements into the DOM such that
           // the document order matches the selection order
