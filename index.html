@@ -34,6 +34,12 @@
                         selection.append('h1').text((function(d) { return d.place }))
                         selection.append('p').text((function(d) { return 'Now selling at ' + d.price + ' cents!' }))
                       })
+                      .mouseoverCallback(function(e, d) { })
+                      .mouseoutCallback(function(e, d) { })
+                      .clickCallback(function(e, d) {
+                        console.log('CALLBACK! ', d)
+                        e.classed('pepito', true)
+                      })
                       .key(function(d) { return d.place })
 
       var example_data = [

@@ -12,7 +12,9 @@ d3.llist = function module() {
   var config = {
     key: function(d) { return d.toString() }, // But it could be, for example 'd.id'
     updateItem: defaultUpdateItem,
-    onClick: function(d) { console.log('onClick not defined', d) }
+    mouseoverCallback: function(_) { console.log('mouseover callback', _) },
+    mouseoutCallback: function(_) { console.log('mouseout callback', _) },
+    clickCallback: function(_) { console.log('click callback', _) }
   }
 
   var ul // Initialise the root ul as undefined
@@ -28,8 +30,15 @@ d3.llist = function module() {
           var li = d3.select(this).selectAll('li')
               .data(_data, config.key)
 
-          li.enter().append('li')
-          li.exit().remove()
+          li.enter()
+            .append('li')
+            .on('mouseover', function(_) { config.mouseoverCallback(d3.select(this), _) })
+            .on('mouseout', function(_) { config.mouseoutCallback(d3.select(this), _) })
+            .on('click', function(_) { config.clickCallback(d3.select(this), _) })
+
+          li.exit()
+            .remove()
+          
           li.call(config.updateItem)
 
           // Re-inserts elements into the DOM such that
@@ -59,9 +68,19 @@ d3.llist = function module() {
     return exports
   }
 
-  exports.onClick = function(_) {
-    config.onClick = _
-    return exports
+  exports.clickCallback = function(_) {
+    config.clickCallback = _
+    return this
+  }
+
+  exports.mouseoverCallback = function(_) {
+    config.mouseoverCallback = _
+    return this
+  }
+
+  exports.mouseoutCallback = function(_) {
+    config.mouseoutCallback = _
+    return this
   }
 
   exports.effectDuration = function(_) {
