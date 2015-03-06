@@ -1,6 +1,6 @@
 {
   "name": "llist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A versatile list of elements from an array, using D3.",
   "author": "Hibai Unzueta (http://hibaiunzueta.com/)",
   "homepage": "https://github.com/hanbzu/llist",
