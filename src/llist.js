@@ -1,8 +1,6 @@
-if (typeof d3 === 'undefined') {
-  throw new Error('missing d3');
-}
+var d3 = require('d3')
 
-d3.llist = function module() {
+function llist() {
 
   // But it could be, for example 'd.name'
   var defaultUpdateItem = function(_selection) {
@@ -91,3 +89,5 @@ d3.llist = function module() {
 
   return exports
 }
+
+module.exports = llist
